@@ -11,7 +11,7 @@ import android.widget.EditText;
 
 public class MainActivity extends ActionBarActivity {
 
-    static String nameUser = "keyName";
+    static String nameUser = "com.example.marcelba.myapplication.myName";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
