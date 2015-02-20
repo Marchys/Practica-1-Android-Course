@@ -3,4 +3,11 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="name">Username</string>
+    <string name="surname">Surname</string>
+    <string name="subtext">Send</string>
+    <string name="woman">woman</string>
+    <string name="man">man</string>
+    <string name="gender">Gender</string>
+    <string name="state">Sudying</string>
 </resources>
