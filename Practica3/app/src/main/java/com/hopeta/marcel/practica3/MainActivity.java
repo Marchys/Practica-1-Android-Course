@@ -1,10 +1,16 @@
 package com.hopeta.marcel.practica3;
 
+import android.content.Intent;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.view.View;
+import android.widget.EditText;
+import android.widget.SeekBar;
+import android.widget.TextView;
+import android.widget.RadioGroup;
+import android.widget.Switch;
 
 public class MainActivity extends Activity {
 
@@ -36,4 +42,47 @@ public class MainActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+    public void getDatAndSend(View v) {
+
+        EditText name = (EditText) findViewById(R.id.name);
+        EditText surname = (EditText) findViewById(R.id.surname);
+        RadioGroup radio = (RadioGroup) findViewById(R.id.radioGroup);
+        Switch s = (Switch) findViewById(R.id.thisSwitch);
+        SeekBar seekThing = (SeekBar) findViewById(R.id.seekBar);
+
+        TextView checked = (TextView) findViewById(radio.getCheckedRadioButtonId());
+
+        EditText birth = (EditText) findViewById(R.id.birthdate);
+
+        String personName = name.getText().toString();
+
+        String personSurname =  surname.getText().toString();
+        String sex = s.getText().toString();
+
+        String studying="aaa";
+        if(s.isChecked()){
+            studying="yes";
+        }else{
+            studying="no";
+        }
+        int weightInter = seekThing.getProgress();
+        String weight = Integer.toString(weightInter);
+
+        String birthDate =  birth.getText().toString();
+
+
+        Intent i = new Intent(this, MainActivity2Activity.class);
+        i.putExtra("name",personName);
+        i.putExtra("surname",personSurname);
+        i.putExtra("sex",sex);
+        i.putExtra("studying",studying);
+        i.putExtra("weight",weight);
+        i.putExtra("birth",birthDate);
+        startActivity(i);
+
+    }
+
+
 }
