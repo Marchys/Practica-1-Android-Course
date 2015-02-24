@@ -59,7 +59,8 @@ public class MainActivity extends Activity {
         String personName = name.getText().toString();
 
         String personSurname =  surname.getText().toString();
-        String sex = s.getText().toString();
+        String sex = checked.getText().toString();
+
 
         String studying="aaa";
         if(s.isChecked()){
