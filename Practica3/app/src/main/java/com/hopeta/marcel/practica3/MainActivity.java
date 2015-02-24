@@ -14,10 +14,15 @@ import android.widget.Switch;
 
 public class MainActivity extends Activity {
 
+    TextView textWei;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SeekBar yourSeekBar=(SeekBar)findViewById(R.id.seekBars);
+        yourSeekBar.setOnSeekBarChangeListener(new changed());
+        textWei = (TextView)findViewById(R.id.weight);
     }
 
 
@@ -34,15 +39,27 @@ public class MainActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.other_settings) {
+             getDatAndSend(findViewById(id));
+             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
+    private class changed implements SeekBar.OnSeekBarChangeListener {
+
+        public void onProgressChanged(SeekBar seekBar, int progress,
+                                      boolean fromUser) {
+            textWei.setText(""+progress);
+        }
+
+        public void onStartTrackingTouch(SeekBar seekBar) {}
+
+        public void onStopTrackingTouch(SeekBar seekBar) {}
+
+    }
 
     public void getDatAndSend(View v) {
 
@@ -50,7 +67,7 @@ public class MainActivity extends Activity {
         EditText surname = (EditText) findViewById(R.id.surname);
         RadioGroup radio = (RadioGroup) findViewById(R.id.radioGroup);
         Switch s = (Switch) findViewById(R.id.thisSwitch);
-        SeekBar seekThing = (SeekBar) findViewById(R.id.seekBar);
+        SeekBar seekThing = (SeekBar) findViewById(R.id.seekBars);
 
         TextView checked = (TextView) findViewById(radio.getCheckedRadioButtonId());
 
@@ -60,7 +77,6 @@ public class MainActivity extends Activity {
 
         String personSurname =  surname.getText().toString();
         String sex = checked.getText().toString();
-
 
         String studying="aaa";
         if(s.isChecked()){

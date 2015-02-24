@@ -7,7 +7,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/background">
+
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -108,10 +110,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:text="@string/weight"
+                android:id="@+id/weight"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <SeekBar
-                android:id="@+id/seekBar"
+                android:id="@+id/seekBars"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
