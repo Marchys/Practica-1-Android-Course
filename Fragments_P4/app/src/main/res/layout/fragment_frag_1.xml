@@ -4,7 +4,18 @@
     android:background="#ffff002c">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="Hello fragment 1" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <TextView android:layout_width="wrap_content" android:layout_height="match_parent"
+        android:text="Hello fragment 1" android:id="@+id/textFragment1"/>
+    <Button
+        android:text="@string/Button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonFragment1"
+        android:onClick="sendDataToMain"/>
+    </LinearLayout>
 
 </FrameLayout>
