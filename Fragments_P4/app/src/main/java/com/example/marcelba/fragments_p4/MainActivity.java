@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements ChangeTextFragment {
 
     //private boolean isFragment2 = true;
     private TextView baseText;
@@ -81,6 +81,7 @@ public class MainActivity extends Activity {
         if(F2 != null) F2.ChangeText("hello main");
     }
 
+    @Override
     public void ChangeText(String text) {
         baseText.setText(text);
     }

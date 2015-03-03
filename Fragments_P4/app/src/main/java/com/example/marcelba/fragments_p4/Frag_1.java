@@ -1,6 +1,7 @@
 package com.example.marcelba.fragments_p4;
 
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,6 +17,8 @@ import android.widget.TextView;
 public class Frag_1 extends Fragment implements View.OnClickListener{
 
     View viewMine;
+    ChangeTextFragment myCallback;
+
 
     public Frag_1() {
         // Required empty public constructor
@@ -33,8 +36,15 @@ public class Frag_1 extends Fragment implements View.OnClickListener{
     }
 
     @Override
+    public void onAttach(Activity activity)
+    {
+        super.onAttach(activity);
+        myCallback = (ChangeTextFragment)activity;
+    }
+    @Override
     public void onClick(View v){
-        ((MainActivity)getActivity()).ChangeText("fragment 1");
+        myCallback.ChangeText("fragment 1");
+        //((MainActivity)getActivity()).ChangeText("fragment 1");
     }
     void ChangeText(String text){
         TextView textMain = (TextView)viewMine.findViewById(R.id.textFragment1);
