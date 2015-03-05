@@ -2,6 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" tools:context="com.hopeta.marcel.fragments_p5.Fragment1"
     android:background="@drawable/duck1">
-
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/buttonFragment1"
+        android:alpha="0.25"/>
 
 </FrameLayout>

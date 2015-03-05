@@ -4,14 +4,21 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements ChangeMainImage{
+
+    ImageView mainImg;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mainImg = (ImageView)findViewById(R.id.mainimg);
 
         getFragmentManager()
                 .beginTransaction()
@@ -51,5 +58,11 @@ public class MainActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void ChangeImg(int img)
+    {
+        mainImg.setBackgroundResource(img);
     }
 }
