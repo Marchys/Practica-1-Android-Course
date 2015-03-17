@@ -72,13 +72,13 @@ public class MainActivity extends Activity implements ChangeTextFragment {
 
     public void sendDataToF1(View view) {
         Frag_1 F1 =(Frag_1)getFragmentManager().findFragmentById(R.id.container1);
-        if(F1 != null) F1.ChangeText("hello main");
+        if(F1 != null) F1.ChangeText("hello main 1");
 
     }
 
     public void sendDataToF2(View view) {
         Frag_2 F2 =(Frag_2)getFragmentManager().findFragmentById(R.id.container2);
-        if(F2 != null) F2.ChangeText("hello main");
+        if(F2 != null) F2.ChangeText("hello main 2");
     }
 
     @Override
