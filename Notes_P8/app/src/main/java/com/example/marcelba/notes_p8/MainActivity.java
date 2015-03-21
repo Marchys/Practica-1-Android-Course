@@ -68,7 +68,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
 
         i.putExtra("id",id);
         i.putExtra("title",((TextView) view.findViewById(R.id.noteTitle)).getText().toString());
-        i.putExtra("body",((TextView) view.findViewById(R.id.noteTitle)).getText().toString() );
+        i.putExtra("body",((TextView) view.findViewById(R.id.noteBody)).getText().toString() );
 
         startActivity(i);
     }

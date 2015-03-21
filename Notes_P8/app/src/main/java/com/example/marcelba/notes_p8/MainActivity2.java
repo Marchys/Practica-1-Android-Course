@@ -1,6 +1,7 @@
 package com.example.marcelba.notes_p8;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,6 +13,8 @@ public class MainActivity2 extends Activity {
 
     EditText titleNote;
     EditText bodyNote;
+    Long idNote;
+
 
 
     @Override
@@ -20,6 +23,17 @@ public class MainActivity2 extends Activity {
         setContentView(R.layout.activity_main_activity2);
         titleNote = (EditText)findViewById(R.id.noteTitle);
         bodyNote = (EditText)findViewById(R.id.noteBody);
+
+        Bundle extras = getIntent().getExtras();
+
+        if(extras != null){
+            idNote =  extras.getLong("id",20);
+            String title =  extras.getString("title");
+            String body =  extras.getString("body");
+            titleNote.setText(title);
+            bodyNote.setText(body);
+        }
+
     }
 
 
@@ -50,9 +64,15 @@ public class MainActivity2 extends Activity {
         super.onPause();
         String tempTitle= titleNote.getText().toString();
         String tempBody = bodyNote.getText().toString();
-        if(!tempBody.matches("") && !tempTitle.matches("")) {
+        if(!tempBody.matches("") && !tempTitle.matches("") && idNote == null) {
 
          MainActivity.db.addNote(tempTitle,tempBody);
         }
+        else if(idNote != null)
+        {
+        MainActivity.db.updateNote(idNote, tempTitle, tempBody);
+        }
     }
+
+
 }

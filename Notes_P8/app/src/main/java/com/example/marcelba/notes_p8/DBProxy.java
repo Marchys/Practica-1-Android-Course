@@ -44,13 +44,19 @@ public class DBProxy extends SQLiteOpenHelper {
         db.insert(databaseName, null, values);
     }
 
-    public void updateNote(long id, String title, String body){
+       public void updateNote(Long id, String title, String body)
+    {
         SQLiteDatabase db = getWritableDatabase();
-        ContentValues values = new ContentValues();
 
+        ContentValues values = new ContentValues();
         values.put(databaseTitle, title);
-        values.put(databaseNote,  body);
+        values.put(databaseNote, body);
+
+        String selection = id + " LIKE ?";
+        String[] selectionArgs = { String.valueOf(id) };
+        db.update(databaseName,values,selection,selectionArgs);
     }
+
     public Cursor getAllNotes(){
         SQLiteDatabase db = getReadableDatabase();
         String[] columns = new String[]{id, databaseTitle, databaseNote};
